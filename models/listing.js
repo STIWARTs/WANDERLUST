@@ -26,17 +26,17 @@ const listingSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-  // geometry: {
-  //   type: {
-  //     type: String,
-  //     enum: ["Point"], //'location.type' must be 'Point'
-  //     required: true,
-  //   },
-  //   coordinates: {
-  //     type: [Number],
-  //     requires: true,
-  //   },
-  // },
+  geometry: {
+    type: {
+      type: String,
+      enum: ["Point"], //'location.type' must be 'Point'
+      required: true,
+    },
+    coordinates: {
+      type: [Number],
+      requires: true,
+    },
+  },
 });
 
 //CREATE POST MONGOOSE MIDDLEWARE

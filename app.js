@@ -13,7 +13,6 @@ const ExpressError = require("./utils/ExpressError.js");
 const listingRouter = require("./routes/listing.js"); //Resturcturing route
 const reviewRouter = require("./routes/review.js"); //Resturcturing route
 const session = require("express-session");
-const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -45,23 +44,9 @@ app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
-//use mongo session store
-const store = MongoStore.create({
-  mongoUrl: dbUrl,
-  crypto: {
-    secret: process.env.SECRET, //advance option..adding secret in form of crypto--fro encryption
-  },
-  touchAfter: 24 * 3600, //interval in sec between session update
-});
-
-store.on("error", () => {
-  console.log("ERROR IN MONGO SESSION STORE", err);
-});
-
-//Define express Session Options
+//Define Session Options
 const sessionOptions = {
-  store,
-  secret: process.env.SECRET,
+  secret: "mysupersecretcode",
   resave: false,
   saveUninitialized: true,
   //manupulate cookies

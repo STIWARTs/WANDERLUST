@@ -1,9 +1,8 @@
 <% layout("/layouts/boilerplate")%>
-<!-- map -->
-<!--  <script>
-  const mapToken = "%= process.env.MAP_TOKEN %>";
-  const coordinates = "%- JSON.stringify(listing.geometry.coordinates) %>";
-</script> -->
+<script>
+  const mapToken = "<%= process.env.MAP_TOKEN %>";
+  const coordinates = "<%- JSON.stringify(listing.geometry.coordinates) %>";
+</script>
   <!-- for all div to center of page row and col define -->
   <div class="row mt-3">
     <div class="col-8 offset-3">
@@ -140,21 +139,13 @@
     </div>
     <%}%>
   </div>
-  <!-- mapbox map -->
-  <!-- <div class = "col-8 offset-3 mb-3">
+  <div class = "col-8 offset-3 mb-3">
     <h3>Where you'll be</h3>
     <div id="map"></div>
-  </div> -->
+  </div>
 </div>
 
-<!-- <script src ="/js/map.js"></script>  -->
-
-
-
-
-
-
-
+<script src ="/js/map.js"></script> 
 <!-- << layout("/layouts/boilerplate")%>
   <body>
     <h3>Listing Details :</h3>

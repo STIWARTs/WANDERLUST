@@ -107,7 +107,7 @@
   <% for(listing of allListings){%>
   <!-- <a></a>to make all cards clickable..redirect to show page-->
   <a href="/listings/<%= listing._id %>" class="listing-link">
-    <div class="card col listing-card">
+    <div class="card col">
       <img
         src="<%= listing.image.url %>"
         class="card-img-top"
@@ -116,6 +116,7 @@
       />
       <!-- can place text above images -->
       <div class="card-img-overlay"></div>
+
       <div class="card-body">
         <p class="card-text">
           <b><%= listing.title %></b>
